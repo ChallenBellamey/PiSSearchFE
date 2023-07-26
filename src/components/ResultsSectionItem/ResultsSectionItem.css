@@ -1,4 +1,5 @@
 .resultsSectionItemContainer {
+    all: unset;
     width: 300px;
     min-height: 300px;
     margin: 30px;
@@ -6,6 +7,8 @@
     box-shadow: -2.5px 2.5px 2.5px 2.5px rgba(0, 0, 0, .25);
     border-radius: 3px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .itemThumbnailContainer {
@@ -24,10 +27,12 @@
 
 .itemText {
     width: 100%;
+    min-height: calc(100% - 160px);
     box-sizing: border-box;
     padding: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .itemSnippet {
@@ -45,9 +50,20 @@
     top: 100%;
 }
 
+.itemMatchesContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
 .itemMatch {
     background-color: lightgrey;
-    padding: 3px 6px;
+    padding: 0px 6px;
     line-height: 25px;
     border-radius: 12.5px;
+    white-space: nowrap;
+    margin-right: 6px;
+    margin-bottom: 6px;
 }

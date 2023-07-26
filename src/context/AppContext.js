@@ -11,6 +11,8 @@ const initialState = {
     isLoadingResults: false,
     searchTermsInputValue: "",
     playlistInputValue: null,
+    sortByValue: "Matches",
+    selectedItem: null,
 };
 
 export const AppContext = createContext(initialState);

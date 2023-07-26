@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useMemo } from "react";
+
+import { AppContext } from "../../context/index.js";
 
 import "./ResultsSectionItem.css";
 
 const ResultsSectionItem = ({ item }) => {
+    const setAppState = useContext(AppContext)[1];
 
     const {
         thumbnail,
@@ -11,8 +14,12 @@ const ResultsSectionItem = ({ item }) => {
         tally,
     } = item;
 
+    const onClick = useMemo(() => {
+        return () => setAppState({ selectedItem: item });
+    }, [setAppState, item]);
+
     return (
-        <div className="resultsSectionItemContainer">
+        <button className="resultsSectionItemContainer" onClick={onClick}>
             <div className="itemThumbnailContainer">
                 <img className="itemThumbnail" alt={title} src={thumbnail} />
             </div>
@@ -21,13 +28,13 @@ const ResultsSectionItem = ({ item }) => {
                     <span className="itemTitle">{title}</span>
                     <span className="itemDate">{new Date(publishedAt).toLocaleDateString()}</span>
                 </div>
-                <div>
-                    {Object.keys(tally).map((searchTerm, index) => (
+                <div className="itemMatchesContainer">
+                    {Object.keys(tally).map(searchTerm => (
                         <span className={"itemMatch"} key={searchTerm}>{`${searchTerm}: ${tally[searchTerm]}`}</span>
                     ))}
                 </div>
             </div>
-        </div>
+        </button>
     );
 };
 
