@@ -2,6 +2,7 @@ import { AppContextProvider } from './context/index.js';
 
 import {
     Head,
+    ResultsSection,
 } from "./components/index.js";
 
 import './App.css';
@@ -11,6 +12,7 @@ function App() {
         <div className="App">
             <AppContextProvider>
                 <Head />
+                <ResultsSection />
             </AppContextProvider>
         </div>
     );
