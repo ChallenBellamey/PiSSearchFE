@@ -11,10 +11,18 @@ import "./ResultsSection.css";
 
 const ResultsSection = () => {
     const [appState] = useContext(AppContext);
-    const { sortedResults } = appState;
+    const { sortedResults, isLoadingResults } = appState;
 
-    if (!sortedResults) {
+    if (!sortedResults && !isLoadingResults) {
         return null;
+    }
+
+    if (!sortedResults && isLoadingResults) {
+        return (
+            <div className="resultsSectionContainer">
+                {isLoadingResults && <span>Loading...</span>}
+            </div>
+        );
     }
 
     return (
