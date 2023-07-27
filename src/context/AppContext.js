@@ -31,8 +31,7 @@ const sortResults = (results, sortByValue) => (
 );
 
 const initialState = {
-    // apiUrl: "https://pissearchbe.onrender.com/",
-    apiUrl: "http://localhost:9090/",
+    apiUrl: "https://pissearchbe.onrender.com/",
     playlists: null,
     results: null,
     isLoadingResults: false,
@@ -95,7 +94,7 @@ export const AppContextProvider = (props) => {
 
     return (
         <AppContext.Provider value={[appState, setAppState]}>
-            {!playlists && <span>Loading...</span>}
+            {!playlists && <span className="initialLoadMessage">Loading...</span>}
             {playlists && children}
         </AppContext.Provider>
     );
