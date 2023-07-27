@@ -19,7 +19,7 @@ const ResultsSectionItem = ({ item }) => {
     }, [setAppState, item]);
 
     return (
-        <button className="resultsSectionItemContainer" onClick={onClick}>
+        <button aria-label={`Open result ${title}`} className="resultsSectionItemContainer" onClick={onClick}>
             <div className="itemThumbnailContainer">
                 <img className="itemThumbnail" alt={title} src={thumbnail} />
             </div>

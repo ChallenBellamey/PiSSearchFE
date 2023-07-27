@@ -1,8 +1,8 @@
 import { AppContextProvider } from './context/index.js';
 
 import {
-    Head,
-    ResultsSection,
+    Body,
+    ResultsSectionItemModal,
 } from "./components/index.js";
 
 import './App.css';
@@ -11,8 +11,8 @@ function App() {
     return (
         <div className="App">
             <AppContextProvider>
-                <Head />
-                <ResultsSection />
+                <Body />
+                <ResultsSectionItemModal />
             </AppContextProvider>
         </div>
     );

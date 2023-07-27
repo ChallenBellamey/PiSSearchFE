@@ -28,10 +28,11 @@ const SearchButton = () => {
         playlists,
         apiUrl,
         isLoadingResults,
+        results,
     } = appState;
 
     const onClick = () => {
-        if (searchTermsInputValue && playlistInputValue) {
+        if (!results && searchTermsInputValue && playlistInputValue) {
             setAppState({
                 isLoadingResults: true,
             });
@@ -48,7 +49,6 @@ const SearchButton = () => {
                 playlistIds: formattedPlaylists,
             })
                 .then(({ data: { results }}) => {
-                    console.log(results)
                     setAppState({
                         isLoadingResults: false,
                         results,
@@ -59,7 +59,7 @@ const SearchButton = () => {
 
     return (
         <div className="searchButtonContainer">
-            <button onClick={onClick}>Search</button>
+            <button aria-label="Search" onClick={onClick}>Search</button>
         </div>
     );
 };
