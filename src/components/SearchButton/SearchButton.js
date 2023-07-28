@@ -12,10 +12,6 @@ const formatSearchTermsInputValue = (searchTermsInputValue) => {
 };
 
 const formatPlaylistInputValue = (playlists, playlistInputValue) => {
-    if (playlistInputValue === "All") {
-        return undefined;
-    }
-
     return [playlists[playlistInputValue]];
 };
 

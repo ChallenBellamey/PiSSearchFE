@@ -40,7 +40,7 @@ export const AppContextProvider = (props) => {
                 .then(({ data: { playlists }}) => {
                     setAppState({
                         playlists,
-                        playlistInputValue: "All",
+                        playlistInputValue: Object.keys(playlists)[0],
                     });
                 });
         }

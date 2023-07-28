@@ -26,7 +26,6 @@ const PlaylistInput = () => {
                 value={playlistInputValue}
                 onChange={onChange}
             >
-                <option>{"All"}</option>
                 {Object.keys(playlists).map(playlistTitle => (
                     <option key={playlistTitle}>{playlistTitle}</option>
                 ))}
