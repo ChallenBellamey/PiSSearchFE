@@ -8,17 +8,17 @@ import "./ResultsSectionItemModal.css";
 const ResultsSectionItemModal = () => {
     const [appState, setAppState] = useContext(AppContext);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const { selectedItem, sortedResults } = appState;
+    const { selectedItem, results } = appState;
     const isAtStart = (currentIndex === 0);
-    const isAtEnd = ((currentIndex + 1) === sortedResults?.length)
+    const isAtEnd = ((currentIndex + 1) === results?.length)
 
     useEffect(() => {
         if (selectedItem) {
-            const index = sortedResults.indexOf(selectedItem);
+            const index = results.indexOf(selectedItem);
 
             setCurrentIndex(index);
         }
-    }, [selectedItem, sortedResults, setCurrentIndex]);
+    }, [selectedItem, results, setCurrentIndex]);
 
     if (!selectedItem) {
         return null;
@@ -38,7 +38,7 @@ const ResultsSectionItemModal = () => {
     };
 
     const onSkip = (indexDiff) => {
-        const newSelectedItem = sortedResults[currentIndex + indexDiff]
+        const newSelectedItem = results[currentIndex + indexDiff]
 
         if (newSelectedItem) {
             setAppState({

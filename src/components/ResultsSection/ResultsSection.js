@@ -11,13 +11,13 @@ import "./ResultsSection.css";
 
 const ResultsSection = () => {
     const [appState] = useContext(AppContext);
-    const { sortedResults, isLoadingResults } = appState;
+    const { results, isLoadingResults } = appState;
 
-    if (!sortedResults && !isLoadingResults) {
+    if (!results && !isLoadingResults) {
         return null;
     }
 
-    if (!sortedResults && isLoadingResults) {
+    if (!results && isLoadingResults) {
         return (
             <div className="resultsSectionContainer">
                 {isLoadingResults && <span>Loading...</span>}
@@ -32,7 +32,7 @@ const ResultsSection = () => {
             </div>
             <div className="resultsSectionItemsContainer">
                 {
-                    sortedResults
+                    results
                         .map(item => (
                             <ResultsSectionItem key={item.title + item.publishedAt} item={item} />
                         ))
